@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Rob McKenna Portfolio</title>
+    <meta name="description" content="Resume, professional experience, and coursework of Rob McKenna.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nursery: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts & Custom CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Smooth scrolling for sidebar linking */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body
+    class="antialiased bg-white text-gray-900 selection:bg-nursery-500 selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-xl font-bold outfit-font tracking-tight uppercase">R<span
+                            class="text-nursery-600">.</span> McKenna</a>
+                </div>
+                <div class="hidden md:flex space-x-12 items-center">
+                    <a href="resume.html"
+                        class="text-xs uppercase tracking-widest font-semibold text-gray-900 hover-link-line">Resume</a>
+                    <a href="projects.html"
+                        class="text-xs uppercase tracking-widest font-semibold text-gray-900 hover-link-line">Projects</a>
+                    <a href="contact.html"
+                        class="text-xs uppercase tracking-widest font-semibold text-nursery-700 hover-link-line">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100">
+            <div class="px-6 pt-4 pb-6 space-y-4">
+                <a href="resume.html"
+                    class="block text-sm uppercase tracking-widest font-semibold text-gray-900">Resume</a>
+                <a href="projects.html"
+                    class="block text-sm uppercase tracking-widest font-semibold text-gray-900">Projects</a>
+                <a href="contact.html"
+                    class="block text-sm uppercase tracking-widest font-semibold text-nursery-700">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Spacer -->
+    <div class="pt-24 flex-grow">
+
+        <!-- Main Wrapper -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-32">
+
+            <div class="flex flex-col md:flex-row justify-between items-baseline mb-16 fade-in-section">
+                <h2 class="text-4xl lg:text-5xl font-black outfit-font tracking-tighter">Resume</h2>
+                <a href="Robert McKenna Website Resume .pdf" target="_blank"
+                    class="text-sm font-bold uppercase tracking-widest border-b-2 border-nursery-600 text-nursery-700 pb-1 hover:text-gray-900 hover:border-gray-900 transition-colors mt-6 md:mt-0">
+                    Download PDF Resume
+                </a>
+            </div>
+
+            <!-- CSS Grid for Sidebar + Main Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 relative">
+
+                <!-- Sticky Sidebar -->
+                <div class="hidden lg:block lg:col-span-3">
+                    <div class="sticky top-32 space-y-8 fade-in-section">
+                        <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400">On this page</h3>
+                        <ul class="space-y-4 text-sm font-semibold tracking-wide text-gray-600">
+                            <li><a href="#education" class="hover:text-nursery-600 transition-colors">Education</a></li>
+                            <li><a href="#work" class="hover:text-nursery-600 transition-colors">Work Experience</a>
+                            </li>
+                            <li><a href="#skills" class="hover:text-nursery-600 transition-colors">Professional
+                                    Skills</a></li>
+                            <li><a href="#coursework" class="hover:text-nursery-600 transition-colors">Key
+                                    Coursework</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Main Resumbe Content -->
+                <div class="lg:col-span-9 space-y-32 border-l border-gray-100 pl-0 lg:pl-12">
+
+                    <!-- Education -->
+                    <div id="education" class="scroll-mt-32 fade-in-section">
+                        <h3 class="text-2xl font-bold outfit-font tracking-tight mb-8 text-nursery-700 uppercase">
+                            Education</h3>
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-gray-100 items-center group">
+                            <div class="md:col-span-7 space-y-6">
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-900 outfit-font">Texas A&M University ('26)
+                                    </h4>
+                                    <p class="text-gray-500 font-light">B.S. Horticulture, Minor in Business</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-900 outfit-font">Blinn Community College</h4>
+                                    <p class="text-gray-500 font-light">Foundational Studies</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-900 outfit-font">San Antonio Christian H.S.
+                                    </h4>
+                                    <p class="text-gray-500 font-light">High School Diploma</p>
+                                </div>
+                            </div>
+                            <div
+                                class="md:col-span-5 overflow-hidden rounded-xl shadow-sm aspect-video md:aspect-auto h-full">
+                                <img src="resume%20photos/tamu%20placeholder%20image.jpg" alt="Texas A&M University"
+                                    class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Experience -->
+                    <div id="work" class="scroll-mt-32 fade-in-section">
+                        <h3 class="text-2xl font-bold outfit-font tracking-tight mb-8 text-nursery-700 uppercase">Work
+                            Experience</h3>
+                        <div class="space-y-0">
+                            <!-- Role 1 -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-16 border-t border-gray-200 group">
+                                <div class="lg:col-span-3 flex flex-col justify-between">
+                                    <div>
+                                        <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Aug
+                                            2025 - Present</p>
+                                        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">College Station,
+                                            TX</p>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-9 flex flex-col md:flex-row gap-8 items-start">
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-black outfit-font tracking-tight mb-2">Kids Coach</h3>
+                                        <h4 class="text-lg text-nursery-700 font-medium mb-6">Brazos Valley Mixed
+                                            Martial Arts & Fitness</h4>
+                                        <p class="text-gray-600 font-light leading-relaxed">
+                                            Lead jiu-jitsu and kickboxing classes for children (ages 4-13), specializing
+                                            in the 4-6 age group.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-full md:w-64 flex-shrink-0 overflow-hidden rounded-xl shadow-sm h-48 md:h-auto md:aspect-[4/3]">
+                                        <img src="resume photos/kids coaching.jpg" alt="Kids Coaching"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Role 2 -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-16 border-t border-gray-200 group">
+                                <div class="lg:col-span-3 flex flex-col justify-between">
+                                    <div>
+                                        <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">May
+                                            2025 - Aug 2025</p>
+                                        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Austin, TX</p>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-9 flex flex-col md:flex-row gap-8 items-start">
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-black outfit-font tracking-tight mb-2">Intern</h3>
+                                        <h4 class="text-lg text-nursery-700 font-medium mb-6">Leaf Landscape Supply</h4>
+                                        <p class="text-gray-600 font-light leading-relaxed">
+                                            Rotated through all positions in the company, learning sales, inventory
+                                            management, and logistics. Utilized Epicor software to manage sales,
+                                            inventory, and logistics.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-full md:w-64 flex-shrink-0 overflow-hidden rounded-xl shadow-sm h-48 md:h-auto md:aspect-[4/3]">
+                                        <img src="resume%20photos/leaf%20landscape%20supply.jfif"
+                                            alt="Leaf Landscape Supply" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Role 3 -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-16 border-t border-gray-200 group">
+                                <div class="lg:col-span-3 flex flex-col justify-between">
+                                    <div>
+                                        <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Nov
+                                            2023 - Feb 2025</p>
+                                        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">College Station,
+                                            TX</p>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-9 flex flex-col md:flex-row gap-8 items-start">
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-black outfit-font tracking-tight mb-2">Bouncer</h3>
+                                        <h4 class="text-lg text-nursery-700 font-medium mb-6">The Backyard on Northgate
+                                        </h4>
+                                        <p class="text-gray-600 font-light leading-relaxed">
+                                            Successfully de-escalated verbal and physical conflicts, maintaining a safe
+                                            environment for 1,000+ patrons nightly.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-full md:w-64 flex-shrink-0 overflow-hidden rounded-xl shadow-sm h-48 md:h-auto md:aspect-[4/3]">
+                                        <img src="resume%20photos/bouncer%20backyard.jfif" alt="Bouncer The Backyard"
+                                            class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Role 4 -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-16 border-t border-gray-200 group">
+                                <div class="lg:col-span-3 flex flex-col justify-between">
+                                    <div>
+                                        <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Jun
+                                            2024 - Jul 2024</p>
+                                        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">El Campo, TX</p>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-9 flex flex-col md:flex-row gap-8 items-start">
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-black outfit-font tracking-tight mb-2">Intern</h3>
+                                        <h4 class="text-lg text-nursery-700 font-medium mb-6">GreenLeaf Nursery Company
+                                            Internship Program</h4>
+                                        <p class="text-gray-600 font-light leading-relaxed">
+                                            Assisted with comprehensive nursery operations, including propagation,
+                                            planting, growing, pest management, and maintenance.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-full md:w-64 flex-shrink-0 overflow-hidden rounded-xl shadow-sm h-48 md:h-auto md:aspect-[4/3]">
+                                        <img src="resume%20photos/Green%20Leaf%20Intern.jfif"
+                                            alt="GreenLeaf Nursery Intern" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Role 5 -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-16 border-t border-gray-200 group">
+                                <div class="lg:col-span-3 flex flex-col justify-between">
+                                    <div>
+                                        <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Mar
+                                            2022 - Aug 2023</p>
+                                        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Boerne, TX</p>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-9 flex flex-col md:flex-row gap-8 items-start">
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-black outfit-font tracking-tight mb-2">Partial Owner
+                                        </h3>
+                                        <h4 class="text-lg text-nursery-700 font-medium mb-6">Rob and Davis Landscaping
+                                        </h4>
+                                        <p class="text-gray-600 font-light leading-relaxed">
+                                            Responsible for Bidding/planning jobs, acquiring materials, repairing
+                                            equipment, and tracking expenses.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-full md:w-64 flex-shrink-0 overflow-hidden rounded-xl shadow-sm h-48 md:h-auto md:aspect-[4/3]">
+                                        <img src="resume%20photos/Rob%20and%20Davis%20Landscaping.jfif"
+                                            alt="Rob and Davis Landscaping" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Role 6 -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-16 border-t border-gray-200 group">
+                                <div class="lg:col-span-3 flex flex-col justify-between">
+                                    <div>
+                                        <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">
+                                            Summers: '19, '20, '22, '23</p>
+                                        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Garfield, TX</p>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-9 flex flex-col md:flex-row gap-8 items-start">
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-black outfit-font tracking-tight mb-2">Farm Hand</h3>
+                                        <h4 class="text-lg text-nursery-700 font-medium mb-6">Dry Creek Tree Farm</h4>
+                                        <p class="text-gray-600 font-light leading-relaxed">
+                                            Assisted with all aspects of producing, maintaining, and shipping large
+                                            specimen shade trees for a family operation.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-full md:w-64 flex-shrink-0 overflow-hidden rounded-xl shadow-sm h-48 md:h-auto md:aspect-[4/3]">
+                                        <img src="resume%20photos/dry%20creek%20tree%20farm.jpg"
+                                            alt="Dry Creek Tree Farm" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Role 7 -->
+                            <div
+                                class="grid grid-cols-1 lg:grid-cols-12 gap-8 py-16 border-t border-gray-200 group border-b">
+                                <div class="lg:col-span-3 flex flex-col justify-between">
+                                    <div>
+                                        <p class="text-sm font-semibold tracking-widest text-gray-400 uppercase">Jun
+                                            2021 - Jul 2021</p>
+                                        <p class="text-xs text-gray-400 uppercase tracking-wider mt-1">San Antonio, TX
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-9 flex flex-col md:flex-row gap-8 items-start">
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-black outfit-font tracking-tight mb-2">Yard Hand</h3>
+                                        <h4 class="text-lg text-nursery-700 font-medium mb-6">Mission Wholesale
+                                            Landscape Supply</h4>
+                                        <p class="text-gray-600 font-light leading-relaxed">
+                                            Loaded/unloaded deliveries and assisted customers with their orders.
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="w-full md:w-64 flex-shrink-0 overflow-hidden rounded-xl shadow-sm h-48 md:h-auto md:aspect-[4/3]">
+                                        <img src="resume%20photos/mission%20landscape%20supply.jpg"
+                                            alt="Mission Wholesale Landscape Supply"
+                                            class="w-full h-full object-cover object-top">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Skills -->
+                    <div id="skills" class="scroll-mt-32 fade-in-section">
+                        <h3 class="text-2xl font-bold outfit-font tracking-tight mb-8 text-nursery-700 uppercase">
+                            Professional Skills</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 pb-12 border-b border-gray-100">
+                            <!-- Left Column: Business & Interpersonal -->
+                            <div class="space-y-12">
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-4">Business & Operations</h4>
+                                    <ul class="list-disc list-outside ml-4 space-y-2 text-sm text-gray-600 font-light">
+                                        <li>Landscape Bidding & Estimation</li>
+                                        <li>Nursery Inventory Management & Logistics</li>
+                                        <li>Customer Relations & Sales</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-4">Interpersonal & Leadership</h4>
+                                    <ul class="list-disc list-outside ml-4 space-y-2 text-sm text-gray-600 font-light">
+                                        <li>Leadership & Mentorship</li>
+                                        <li>Conflict Resolution & De-escalation</li>
+                                        <li>Teamwork & Communication</li>
+                                        <li>Public Speaking</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Technical Skills -->
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-4">Technical Skills</h4>
+                                <ul
+                                    class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-600 font-light leading-relaxed">
+                                    <li><strong class="font-bold text-gray-900">Plant ID</strong></li>
+                                    <li><strong class="font-bold text-gray-900">Pest & Disease Diagnostics:</strong>
+                                        Proficient in identifying common horticultural pests and diseases; trained in
+                                        both academic (Plant Pathology/Entomology) and scouting at GreenLeaf.</li>
+                                    <li><strong class="font-bold text-gray-900">Basic Equipment Maintenance &
+                                            Repair</strong></li>
+                                    <li><strong class="font-bold text-gray-900">Productivity Software:</strong>
+                                        Microsoft Office Suite and Google Workspace</li>
+                                    <li><strong class="font-bold text-gray-900">Industry Software:</strong> Experience
+                                        with Epicor for sales, inventory management, and logistics.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Academic Foundation -->
+                    <div id="coursework" class="scroll-mt-32 fade-in-section pt-12 pb-16">
+                        <h3 class="text-2xl font-bold outfit-font tracking-tight mb-16 text-nursery-700 uppercase">Key
+                            Coursework</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-24">
+                            <div class="relative">
+                                <span
+                                    class="absolute -top-12 -left-6 text-9xl font-black text-gray-100 opacity-60 select-none z-0">01</span>
+                                <div class="relative z-10 pt-4">
+                                    <h3 class="text-2xl font-bold mb-1">HORT 425</h3>
+                                    <p class="text-nursery-700 text-xs font-bold uppercase tracking-widest mb-4">
+                                        Landscape Installation</p>
+                                    <p class="text-gray-600 font-light leading-relaxed">
+                                        Bridges the gap between landscape design and practical application by covering
+                                        cost and bid estimation, drainage, and construction principles. This hands-on
+                                        knowledge allows me to better advise landscape contractor clients.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="relative">
+                                <span
+                                    class="absolute -top-12 -left-6 text-9xl font-black text-gray-100 opacity-60 select-none z-0">02</span>
+                                <div class="relative z-10 pt-4">
+                                    <h3 class="text-2xl font-bold mb-1">ENTO 201</h3>
+                                    <p class="text-nursery-700 text-xs font-bold uppercase tracking-widest mb-4">General
+                                        Entomology</p>
+                                    <p class="text-gray-600 font-light leading-relaxed">
+                                        Allows me to act as a frontline scout to accurately identify and manage pest
+                                        populations, ultimately protecting highly valuable nursery inventory from
+                                        damage.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="relative">
+                                <span
+                                    class="absolute -top-12 -left-6 text-9xl font-black text-gray-100 opacity-60 select-none z-0">03</span>
+                                <div class="relative z-10 pt-4">
+                                    <h3 class="text-2xl font-bold mb-1">PLPA 301</h3>
+                                    <p class="text-nursery-700 text-xs font-bold uppercase tracking-widest mb-4">Plant
+                                        Pathology</p>
+                                    <p class="text-gray-600 font-light leading-relaxed">
+                                        Builds immense trust with landscape contractors by allowing me to provide
+                                        accurate disease diagnostics directly on the sales floor.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="relative">
+                                <span
+                                    class="absolute -top-12 -left-6 text-9xl font-black text-gray-100 opacity-60 select-none z-0">04</span>
+                                <div class="relative z-10 pt-4">
+                                    <h3 class="text-2xl font-bold mb-1">HORT 460</h3>
+                                    <p class="text-nursery-700 text-xs font-bold uppercase tracking-widest mb-4">
+                                        Operations & Bidding</p>
+                                    <p class="text-gray-600 font-light leading-relaxed">
+                                        Translates theoretical business concepts into practical skills by covering
+                                        overhead costing, insurance requirements, and the complete bidding process.
+                                        Solidifies my ability to accurately price jobs to ensure profitability.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="relative md:col-span-2 md:w-1/2 mx-auto mt-0 lg:mt-12">
+                                <span
+                                    class="absolute -top-12 -left-6 text-9xl font-black text-gray-100 opacity-60 select-none z-0">05</span>
+                                <div class="relative z-10 pt-4">
+                                    <h3 class="text-2xl font-bold mb-1">HORT 420</h3>
+                                    <p class="text-nursery-700 text-xs font-bold uppercase tracking-widest mb-4">Nursery
+                                        Management</p>
+                                    <p class="text-gray-600 font-light leading-relaxed">
+                                        The capstone knowledge needed for site selection, supply chain logistics, and
+                                        overall facility optimization in a commercial setting.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white w-full">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 font-light border-t border-gray-800">
+            <p class="mb-4 md:mb-0">Copyright © 2026 Rob McKenna.</p>
+            <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-nursery-600"></span>
+                <p>Dallas-Fort Worth, TX Area</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Development Disclaimer Banner -->
+    <div id="dev-disclaimer" class="fixed bottom-0 left-0 w-full bg-nursery-600 text-white z-[100] transform transition-transform duration-300 translate-y-full hidden">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center lg:px-12 w-full">
+            <div class="flex items-center gap-3">
+                <span class="flex p-1 rounded-lg bg-nursery-700 flex-shrink-0">
+                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <p class="text-sm font-medium pr-2 text-balance leading-tight max-w-2xl">
+                    <strong class="font-bold">Development Build:</strong> Some photographs and contact info are placeholders.
+                </p>
+            </div>
+            <div class="flex-shrink-0 ml-4">
+                <button type="button" id="dismiss-disclaimer" class="-mr-1 flex p-2 rounded-md hover:bg-nursery-700 focus:outline-none transition-colors">
+                    <span class="sr-only">Dismiss</span>
+                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom scripts -->
+    <script src="main.js"></script>
+</body>
+
+</html>

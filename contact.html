@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Rob McKenna Portfolio</title>
+    <meta name="description" content="Contact Rob McKenna.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nursery: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts & Custom CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        // Callback executed by Google reCAPTCHA upon success
+        function onCaptchaSuccess() {
+            // Hide the gate
+            document.getElementById('contact-gate').classList.add('hidden');
+            // Show the details
+            const details = document.getElementById('contact-details');
+            details.classList.remove('hidden');
+            details.classList.add('flex');
+            
+            // Decrypt the protected information using Base64
+            const emailDecoded = atob("eW91ci5lbWFpbEBleGFtcGxlLmNvbQ=="); // your.email@example.com
+            const phoneDecoded = atob("KDU1NSkgMTIzLTQ1Njc="); // (555) 123-4567
+            const phoneLinkDecoded = atob("NTU1MTIzNDU2Nw=="); // 5551234567
+
+            const emailLink = document.getElementById('email-link');
+            emailLink.textContent = emailDecoded;
+            emailLink.href = "mailto:" + emailDecoded;
+
+            const phoneLink = document.getElementById('phone-link');
+            phoneLink.textContent = phoneDecoded;
+            phoneLink.href = "tel:" + phoneLinkDecoded;
+        }
+    </script>
+</head>
+<body class="antialiased bg-gray-900 text-white selection:bg-nursery-500 selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navigation (Dark theme variation for this page) -->
+    <nav class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-xl font-bold outfit-font tracking-tight uppercase text-white">R<span class="text-nursery-500">.</span> McKenna</a>
+                </div>
+                <div class="hidden md:flex space-x-12 items-center">
+                    <a href="resume.html" class="text-xs uppercase tracking-widest font-semibold text-gray-300 hover:text-white transition-colors">Resume</a>
+                    <a href="projects.html" class="text-xs uppercase tracking-widest font-semibold text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="contact.html" class="text-xs uppercase tracking-widest font-semibold text-nursery-500">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-b border-gray-800">
+            <div class="px-6 pt-4 pb-6 space-y-4">
+                <a href="resume.html" class="block text-sm uppercase tracking-widest font-semibold text-gray-300">Resume</a>
+                <a href="projects.html" class="block text-sm uppercase tracking-widest font-semibold text-gray-300">Projects</a>
+                <a href="contact.html" class="block text-sm uppercase tracking-widest font-semibold text-nursery-500">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <main class="flex-grow flex flex-col justify-center py-32 px-6 lg:px-12 max-w-7xl mx-auto text-center fade-in-section w-full">
+        <h2 class="text-6xl font-black outfit-font tracking-tighter mb-8 text-white mt-12">Get In Touch.</h2>
+        <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto mb-16 text-balance">
+            I am actively seeking roles in sales or operations management at a leading rewholesale nursery.
+        </p>
+        
+        <!-- Protection Gate -->
+        <div id="contact-gate" class="flex flex-col items-center justify-center mt-8 fade-in-section">
+            <p class="text-sm text-gray-400 mb-6 uppercase tracking-widest font-semibold flex items-center gap-2">
+                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                Please verify you are human
+            </p>
+            <!-- Google's Official Test Key (always passes) -->
+            <div class="g-recaptcha border-2 border-transparent hover:border-nursery-500/30 transition-colors rounded-lg overflow-hidden shadow-2xl" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onCaptchaSuccess" data-theme="dark"></div>
+        </div>
+        
+        <!-- Hidden Details -->
+        <div id="contact-details" class="hidden flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16 mt-8 fade-in-section opacity-0 transition-opacity duration-1000 is-visible">
+            <div>
+                <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Email</p>
+                <a href="#" id="email-link" class="text-2xl font-light hover:text-nursery-500 transition-colors hover-link-line inline-block text-white">Loading...</a>
+            </div>
+            <div class="hidden md:block w-px h-12 bg-gray-800"></div>
+            <div>
+                <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Phone</p>
+                <a href="#" id="phone-link" class="text-2xl font-light hover:text-nursery-500 transition-colors hover-link-line inline-block text-white">Loading...</a>
+            </div>
+            <div class="hidden md:block w-px h-12 bg-gray-800"></div>
+            <div>
+                <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Network</p>
+                <a href="https://linkedin.com/" target="_blank" class="text-2xl font-light hover:text-blue-400 transition-colors hover-link-line inline-block text-white">LinkedIn Profile</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white w-full">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 font-light border-t border-gray-800">
+            <p class="mb-4 md:mb-0">Copyright © 2026 Rob McKenna.</p>
+            <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-nursery-600"></span>
+                <p>Dallas-Fort Worth, TX Area</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Development Disclaimer Banner -->
+    <div id="dev-disclaimer" class="fixed bottom-0 left-0 w-full bg-nursery-600 text-white z-[100] transform transition-transform duration-300 translate-y-full hidden">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center lg:px-12 w-full">
+            <div class="flex items-center gap-3">
+                <span class="flex p-1 rounded-lg bg-nursery-700 flex-shrink-0">
+                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <p class="text-sm font-medium pr-2 text-balance leading-tight max-w-2xl">
+                    <strong class="font-bold">Development Build:</strong> Some photographs and contact info are placeholders.
+                </p>
+            </div>
+            <div class="flex-shrink-0 ml-4">
+                <button type="button" id="dismiss-disclaimer" class="-mr-1 flex p-2 rounded-md hover:bg-nursery-700 focus:outline-none transition-colors">
+                    <span class="sr-only">Dismiss</span>
+                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom scripts -->
+    <script src="main.js"></script>
+</body>
+</html>

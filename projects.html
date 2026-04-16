@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Rob McKenna Portfolio</title>
+    <meta name="description" content="Project samples and practical execution for Rob McKenna portfolio.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nursery: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts & Preloads -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="Leaf%20Landscape%20supply%20internship%202025/20250604_110941.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="antialiased bg-white text-gray-900 selection:bg-nursery-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-xl font-bold outfit-font tracking-tight uppercase">R<span
+                            class="text-nursery-600">.</span> McKenna</a>
+                </div>
+                <div class="hidden md:flex space-x-12 items-center">
+                    <a href="resume.html"
+                        class="text-xs uppercase tracking-widest font-semibold text-gray-900 hover-link-line">Resume</a>
+                    <a href="projects.html"
+                        class="text-xs uppercase tracking-widest font-semibold text-gray-900 hover-link-line">Projects</a>
+                    <a href="contact.html"
+                        class="text-xs uppercase tracking-widest font-semibold text-nursery-700 hover-link-line">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100">
+            <div class="px-6 pt-4 pb-6 space-y-4">
+                <a href="resume.html"
+                    class="block text-sm uppercase tracking-widest font-semibold text-gray-900">Resume</a>
+                <a href="projects.html"
+                    class="block text-sm uppercase tracking-widest font-semibold text-gray-900">Projects</a>
+                <a href="contact.html"
+                    class="block text-sm uppercase tracking-widest font-semibold text-nursery-700">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Spacer -->
+    <div class="pt-24"></div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-white min-h-screen">
+        <div class="py-32 px-6 lg:px-12 max-w-7xl mx-auto fade-in-section">
+            <h2 class="text-4xl lg:text-5xl font-black outfit-font tracking-tighter mb-4">Project Samples</h2>
+            <p class="text-xl text-gray-500 font-light">Practical execution of operations, leadership, and estimation.
+            </p>
+        </div>
+
+        <div class="space-y-0">
+            <!-- Sample 1 -->
+            <div class="bg-white py-16 fade-in-section group">
+                <div class="relative carousel-wrapper group">
+                    <button
+                        class="carousel-prev opacity-0 group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <div
+                        class="carousel-track flex overflow-x-auto w-full h-[60vh] lg:h-[70vh] py-8 items-center justify-start hide-scrollbar">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250604_110941.jpg"
+                            alt="Leaf Landscape photo 1" class="shrink-0 h-full w-auto object-contain pl-6">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250612_132609.jpg"
+                            alt="Leaf Landscape photo 2" class="shrink-0 h-full w-auto object-contain pl-6">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250623_084749.jpg"
+                            alt="Leaf Landscape photo 3" class="shrink-0 h-full w-auto object-contain pl-6"
+                            loading="lazy">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250624_145008.jpg"
+                            alt="Leaf Landscape photo 4" class="shrink-0 h-full w-auto object-contain pl-6"
+                            loading="lazy">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250715_090728.jpg"
+                            alt="Leaf Landscape photo 5" class="shrink-0 h-full w-auto object-contain pl-6"
+                            loading="lazy">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250715_091340.jpg"
+                            alt="Leaf Landscape photo 6" class="shrink-0 h-full w-auto object-contain pl-6"
+                            loading="lazy">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250718_081836.jpg"
+                            alt="Leaf Landscape photo 7" class="shrink-0 h-full w-auto object-contain pl-6"
+                            loading="lazy">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250722_140340.jpg"
+                            alt="Leaf Landscape photo 8" class="shrink-0 h-full w-auto object-contain pl-6"
+                            loading="lazy">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250801_085252.jpg"
+                            alt="Leaf Landscape photo 9" class="shrink-0 h-full w-auto object-contain pl-6"
+                            loading="lazy">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250801_104440.jpg"
+                            alt="Leaf Landscape photo 10" class="shrink-0 h-full w-auto object-contain pl-6"
+                            loading="lazy">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/20250807_113747.jpg"
+                            alt="Leaf Landscape photo 12" class="shrink-0 h-full w-auto object-contain pl-6"
+                            loading="lazy">
+                        <img src="Leaf%20Landscape%20supply%20internship%202025/955325da-43c6-46f2-9148-511080a25ba0.jpg"
+                            alt="Leaf Landscape photo 13" class="shrink-0 h-full w-auto object-contain pl-6 pr-6"
+                            loading="lazy">
+                    </div>
+
+                    <button
+                        class="carousel-next opacity-0 group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="max-w-4xl mx-auto px-6 pt-12">
+                    <p class="text-xs uppercase tracking-widest font-semibold text-nursery-600 mb-4">Sample 1 — Leaf
+                        Landscape Supply</p>
+                    <h3 class="text-3xl lg:text-4xl font-bold outfit-font tracking-tight mb-8 text-balance">
+                        Operations & Business Intern</h3>
+
+                    <div class="space-y-8 font-light text-gray-600">
+                        <div>
+                            <p><strong class="font-bold text-gray-900 block mb-2">Overview</strong>Over the course of a
+                                10-week immersive internship, I gained hands-on experience at one of Austin's premier
+                                re-wholesaling nurseries. Operating in a fast-paced environment supporting both
+                                landscape contractors and the general public, I developed a comprehensive understanding
+                                of how large-scale inventory management, sales, and cross-functional operations drive
+                                business growth in the green industry.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
+                            <div>
+                                <strong class="font-bold text-gray-900 block mb-4 border-b pb-2 cursor-default">Key
+                                    Contributions & Projects</strong>
+                                <ul class="space-y-4 list-disc list-outside ml-4 text-sm lg:text-base">
+                                    <li><strong class="font-medium text-gray-900">Cross-Functional Operations:</strong>
+                                        Rotated across all major departments—including sales, inventory, receiving,
+                                        deliveries, accounting, and HR—to gain a top-down view of nursery operations and
+                                        supply chain management.</li>
+                                    <li><strong class="font-medium text-gray-900">B2B Sales & Client Relations:</strong>
+                                        Shadowed the senior B2B sales team, mastering the internal sales system to build
+                                        customer quotes and manage client accounts. Completed targeted B2B sales
+                                        training.</li>
+                                    <li><strong class="font-medium text-gray-900">AI Chatbot Integration:</strong>
+                                        Spearheaded a unique technical project for the HR department by setting up an
+                                        AI-powered chatbot fed with internal documents for employee rapid training.</li>
+                                    <li><strong class="font-medium text-gray-900">Inventory & Logistics:</strong>
+                                        Managed physical plant inventory, checked in incoming shipments, and verified
+                                        the accuracy of outbound deliveries.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <strong class="font-bold text-gray-900 block mb-4 border-b pb-2 cursor-default">Skills &
+                                    Takeaways</strong>
+                                <ul class="space-y-4 list-disc list-outside ml-4 text-sm lg:text-base">
+                                    <li><strong class="font-medium text-gray-900">Industry Knowledge:</strong> Rapidly
+                                        learned on-the-fly plant identification, complex project sourcing, and nursery
+                                        profit margin analysis. Attended the TNLA Nursery/Landscape Expo in San Antonio.
+                                    </li>
+                                    <li><strong class="font-medium text-gray-900">Communication & Problem
+                                            Solving:</strong> Overcame communication barriers with a diverse customer
+                                        base by practicing patient, active listening to accurately fulfill challenging
+                                        requirements.</li>
+                                    <li><strong class="font-medium text-gray-900">Business Acumen:</strong> Successfully
+                                        bridged my Horticulture major and Business minor, seeing firsthand how efficient
+                                        inventory management directly maximizes cash flow and revenue generation.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample 2 -->
+            <div class="bg-gray-50 py-16 fade-in-section group">
+                <div class="relative carousel-wrapper group">
+                    <button
+                        class="carousel-prev opacity-0 group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <div
+                        class="carousel-track flex overflow-x-auto w-full h-[60vh] lg:h-[70vh] py-8 items-center justify-start hide-scrollbar">
+                        <img src="Green%20Leaf%20Internship%202024/20240610_114534.jpg" alt="Green Leaf photo 1"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/20240612_100236.jpg" alt="Green Leaf photo 3"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/20240612_111232.jpg" alt="Green Leaf photo 4"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/20240620_094858.jpg" alt="Green Leaf photo 5"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/20240620_094915.jpg" alt="Green Leaf photo 6"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/20240621_101251.jpg" alt="Green Leaf photo 7"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/20240626_105615.jpg" alt="Green Leaf photo 8"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/20240710_080132.jpg" alt="Green Leaf photo 9"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/20240712_103930.jpg" alt="Green Leaf photo 10"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/20240723_072654.jpg" alt="Green Leaf photo 11"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/20240724_114101.jpg" alt="Green Leaf photo 12"
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Green%20Leaf%20Internship%202024/Snapchat-930022574.jpg" alt="Green Leaf photo 13"
+                            class="shrink-0 h-full w-auto object-contain pl-6 pr-6" loading="lazy">
+                    </div>
+
+                    <button
+                        class="carousel-next opacity-0 group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="max-w-4xl mx-auto px-6 pt-12">
+                    <p class="text-xs uppercase tracking-widest font-semibold text-nursery-600 mb-4">Sample 2 —
+                        GreenLeaf Nursery</p>
+                    <h3 class="text-3xl lg:text-4xl font-bold outfit-font tracking-tight mb-8 text-balance">
+                        Commercial Nursery Production Intern</h3>
+
+                    <div class="space-y-8 font-light text-gray-600">
+                        <div>
+                            <p><strong class="font-bold text-gray-900 block mb-2">Overview</strong>Over the course of an
+                                8-week rotational internship at GreenLeaf Nursery Company, I gained a comprehensive view
+                                of large-scale commercial nursery operations. Operating at one of the top producing
+                                nurseries in the country, I worked directly alongside supervisors and labor crews to
+                                master the lifecycle of producing high-quality trees and shrubs for the B2B green
+                                industry.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
+                            <div>
+                                <strong class="font-bold text-gray-900 block mb-4 border-b pb-2 cursor-default">Key
+                                    Contributions & Projects</strong>
+                                <ul class="space-y-4 list-disc list-outside ml-4 text-sm lg:text-base">
+                                    <li><strong class="font-medium text-gray-900">Nursery Operations &
+                                            Production:</strong> Gained extensive hands-on experience by completing
+                                        multi-day rotations with every major supervisor and labor crew. Executed
+                                        essential tasks including shifting plants, shearing, removing diseased branches,
+                                        and managing dead plant disposal.</li>
+                                    <li><strong class="font-medium text-gray-900">Disaster Recovery:</strong> Played a
+                                        critical role in facility recovery efforts following Hurricane Beryl by removing
+                                        damaged shade cloth and plastic from overwintering structures and salvaging
+                                        inventory to minimize crop loss.</li>
+                                    <li><strong class="font-medium text-gray-900">Operational Analysis:</strong>
+                                        Analyzed workforce management and labor efficiency, observing the complex
+                                        challenges of seasonal labor hours and considering operational models utilizing
+                                        H2A programs to stabilize workforce consistency.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <strong class="font-bold text-gray-900 block mb-4 border-b pb-2 cursor-default">Skills &
+                                    Takeaways</strong>
+                                <ul class="space-y-4 list-disc list-outside ml-4 text-sm lg:text-base">
+                                    <li><strong class="font-medium text-gray-900">Horticultural Expertise:</strong>
+                                        Developed practical, technical field skills including proper plant shearing
+                                        protocols, soil sampling, integrated pest identification, and critical
+                                        assessment of plant sale-readiness.</li>
+                                    <li><strong class="font-medium text-gray-900">Resilience & Adaptability:</strong>
+                                        Overcame extreme climate conditions and significant language barriers by
+                                        actively learning conversational Spanish to effectively communicate commands and
+                                        collaborate closely with labor crews.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample 3 -->
+            <div class="bg-white py-16 fade-in-section group">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 lg:px-12 max-w-7xl mx-auto mb-12">
+                    <button id="open-pdf-btn" class="relative hover-trigger h-[40vh] w-full rounded-2xl overflow-hidden group/btn shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300">
+                        <div class="absolute inset-0 bg-gray-900/40 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
+                            <span class="bg-white text-nursery-700 px-6 py-3 rounded-full font-bold shadow-xl flex items-center gap-2 transform translate-y-4 group-hover/btn:translate-y-0 transition duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                View Landscape Plans
+                            </span>
+                        </div>
+                        <img src="Landscape%20Bidding/landscape%20plans%20thumb.jpg" alt="Landscape Plan Thumbnail" class="w-full h-full object-cover group-hover/btn:scale-105 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                            <p class="text-white text-left font-bold tracking-widest uppercase text-xs">PDF Document</p>
+                        </div>
+                    </button>
+
+                    <button id="open-sheet-btn" class="relative hover-trigger h-[40vh] w-full bg-nursery-50 rounded-2xl overflow-hidden group/btn shadow-lg border border-nursery-100 hover:shadow-2xl transition duration-300 flex flex-col justify-center items-center">
+                        <div class="absolute inset-0 bg-nursery-900/40 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
+                            <span class="bg-white text-nursery-700 px-6 py-3 rounded-full font-bold shadow-xl flex items-center gap-2 transform translate-y-4 group-hover/btn:translate-y-0 transition duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                View Bid Breakdown
+                            </span>
+                        </div>
+                        <img src="Landscape%20Bidding/Landscape%20Cost%20Thumb.jpg" alt="Bid Breakdown Thumbnail" class="w-full h-full object-cover group-hover/btn:scale-105 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                            <p class="text-white text-left font-bold tracking-widest uppercase text-xs">Google Sheets</p>
+                        </div>
+                    </button>
+                </div>
+                <div class="max-w-4xl mx-auto px-6 pt-0">
+                    <p class="text-xs uppercase tracking-widest font-semibold text-nursery-600 mb-4">Sample 3 — HORT 460
+                        / Rob and Davis</p>
+                    <h3 class="text-3xl lg:text-4xl font-bold outfit-font tracking-tight mb-12 text-balance">Landscape Bidding.</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-light text-gray-600">
+                        <div>
+                            <p class="mb-6"><strong class="font-bold text-gray-900 block mb-1">Foundational Experience</strong> 
+                                Founded and operated a personal landscaping company in high school, developing foundational skills in job estimation and project profitability.</p>
+                            <p><strong class="font-bold text-gray-900 block mb-1">Advanced Coursework</strong> 
+                                Formalized my hands-on experience at Texas A&M through advanced coursework in Landscape Estimating, Bidding, and Operations.</p>
+                        </div>
+                        <div>
+                            <p class="mb-6"><strong class="font-bold text-gray-900 block mb-1">Comprehensive Structuring</strong> 
+                                Learned to structure comprehensive bids that accurately account for overhead, direct and indirect costs, and profit margins.</p>
+                            <p><strong class="font-bold text-gray-900 block mb-1">Practical Application</strong> 
+                                Completed complex case studies involving full-scale landscape plans, specifications, and business structure requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample 4 -->
+            <div class="bg-gray-50 py-16 fade-in-section group">
+                <div class="relative carousel-wrapper group">
+                    <button
+                        class="carousel-prev opacity-0 group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <div
+                        class="carousel-track flex overflow-x-auto w-full h-[60vh] lg:h-[70vh] py-8 items-center justify-start hide-scrollbar">
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_20251020_215234.jpg" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_0644.JPG" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <video src="TAMU%20Jiu-Jitsu%20Coaching/VID_20251020_215244.mp4" class="shrink-0 h-full w-auto object-contain pl-6" preload="none" loop muted playsinline></video>
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_8893.jpg" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_0652.JPG" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG5020280248678538247.jpg" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <video src="TAMU%20Jiu-Jitsu%20Coaching/20251106_210428.mp4" class="shrink-0 h-full w-auto object-contain pl-6" preload="none" loop muted playsinline></video>
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_20251120_210541.jpg" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_0655.JPG" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <video src="TAMU%20Jiu-Jitsu%20Coaching/VID_20251020_215253.mp4" class="shrink-0 h-full w-auto object-contain pl-6" preload="none" loop muted playsinline></video>
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_20251020_215236.jpg" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_8894.jpg" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_0645.JPG" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_0648.JPG" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6 pr-6" loading="lazy">
+                    </div>
+
+                    <button
+                        class="carousel-next opacity-0 group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="max-w-4xl mx-auto px-6 pt-12">
+                    <p class="text-xs uppercase tracking-widest font-semibold text-nursery-600 mb-4">Sample 4 — TAMU Jiu
+                        Jitsu Club</p>
+                    <h3 class="text-3xl lg:text-4xl font-bold outfit-font tracking-tight mb-12 text-balance">Leadership
+                        in Action.</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-light text-gray-600">
+                        <div>
+                            <p class="mb-6"><strong class="font-bold text-gray-900 block mb-1">Welcoming Newcomers</strong>
+                                Led the beginner classes, ensuring people who had never stepped on the mat could easily grasp the basics of the sport.</p>
+                            <p><strong class="font-bold text-gray-900 block mb-1">Focusing on Basics</strong>
+                                Kept the focus on core movements and safe technique before moving anyone on to live sparring or complex instruction.</p>
+                        </div>
+                        <div>
+                            <p class="mb-6"><strong class="font-bold text-gray-900 block mb-1">Adaptable Teaching</strong>
+                                Listened to what students were struggling with and changed up my approach to make sure the lessons clicked for everyone.</p>
+                            <p><strong class="font-bold text-gray-900 block mb-1">Guiding the Practice</strong>
+                                Managed to stay on track with a long-term teaching plan while still making time for the things the class specifically asked to learn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample 5 -->
+            <div class="bg-white py-16 fade-in-section group">
+                <div class="relative carousel-wrapper group">
+                    <button class="carousel-prev opacity-0 group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    
+                    <div class="carousel-track flex overflow-x-auto w-full h-[60vh] lg:h-[70vh] py-8 items-center justify-start hide-scrollbar">
+                        <img src="Mission%20landscape%20and%20dry%20creek/20230712_075436.jpg" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Mission%20landscape%20and%20dry%20creek/64805995986__2B61565E-DA8B-420A-B205-14B62D7B5520.jpg" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <video src="Mission%20landscape%20and%20dry%20creek/IMG_2052.mp4" class="shrink-0 h-full w-auto object-contain pl-6" preload="none" loop muted playsinline></video>
+                        <img src="Mission%20landscape%20and%20dry%20creek/FullSizeRender.jpg" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Mission%20landscape%20and%20dry%20creek/64865734049__6E024605-5627-440A-81D6-6A052B0D8AC3.jpg" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Mission%20landscape%20and%20dry%20creek/IMG_7836.jpg" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
+                        <img src="Mission%20landscape%20and%20dry%20creek/IMG_7838.jpg" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6 pr-6" loading="lazy">
+                    </div>
+
+                    <button class="carousel-next opacity-0 group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+
+                <div class="max-w-4xl mx-auto px-6 pt-12">
+                    <p class="text-xs uppercase tracking-widest font-semibold text-nursery-600 mb-4">Sample 5 — Dry Creek & Mission Wholesale</p>
+                    <h3 class="text-3xl lg:text-4xl font-bold outfit-font tracking-tight mb-12 text-balance">Foundational Roots & Grit.</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-light text-gray-600">
+                        <div>
+                            <p class="mb-6"><strong class="font-bold text-gray-900 block mb-1">Context &
+                                    Guidelines</strong> A reflection detailing my early start, highlighting the
+                                foundational work of loading deliveries and producing specimen trees.</p>
+                            <p><strong class="font-bold text-gray-900 block mb-1">Skills Mastered</strong> Pure grit,
+                                heavy machinery operations, tying down loads, and physical stamina.</p>
+                        </div>
+                        <div>
+                            <p class="mb-6"><strong class="font-bold text-gray-900 block mb-1">What I Learned</strong>
+                                Respect for every worker on the yard. A successful operation relies just as much on the
+                                yard hands as it does on the managers.</p>
+                            <p><strong class="font-bold text-gray-900 block mb-1">Professional Impact</strong> Showcases
+                                my ground-up understanding of the industry. I know exactly what it takes to physically
+                                move the product.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white w-full">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 font-light border-t border-gray-800">
+            <p class="mb-4 md:mb-0">Copyright © 2026 Rob McKenna.</p>
+            <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-nursery-600"></span>
+                <p>Dallas-Fort Worth, TX Area</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="pdfModal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 bg-gray-900/80 backdrop-blur-sm p-4 md:p-8">
+        <div class="bg-white w-full h-full max-w-7xl rounded-2xl shadow-2xl overflow-hidden flex flex-col transform scale-95 transition-transform duration-300" id="pdfModalContent">
+            <div class="flex justify-between items-center p-4 lg:p-6 border-b border-gray-100 bg-gray-50">
+                <h3 class="text-xl lg:text-2xl font-bold text-gray-900 outfit-font tracking-tight">Landscape Plans (PDF)</h3>
+                <button id="close-pdf-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none p-2 rounded-full hover:bg-gray-200 transition-colors bg-white shadow-sm border border-gray-200 flex items-center gap-2">
+                    <span class="text-sm font-semibold uppercase tracking-widest hidden md:inline">Close</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="flex-1 bg-gray-100 relative w-full h-full p-2 md:p-8">
+                <iframe src="Landscape%20Bidding/Landscape%20Design%20Estimate%20Takeoff.pdf" class="w-full h-full rounded-xl shadow-lg border-2 border-white bg-white"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="sheetModal" class="fixed inset-0 z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 bg-nursery-900/80 backdrop-blur-sm p-4 md:p-8">
+        <div class="bg-white w-full h-full max-w-7xl rounded-2xl shadow-2xl overflow-hidden flex flex-col transform scale-95 transition-transform duration-300" id="sheetModalContent">
+            <div class="flex justify-between items-center p-4 lg:p-6 border-b border-nursery-50 bg-nursery-50">
+                <h3 class="text-xl lg:text-2xl font-bold text-nursery-900 outfit-font tracking-tight">Bid Breakdown (Google Sheets)</h3>
+                <button id="close-sheet-btn" class="text-nursery-700 hover:text-nursery-900 focus:outline-none p-2 rounded-full hover:bg-nursery-200 transition-colors bg-white shadow-sm border border-nursery-200 flex items-center gap-2">
+                    <span class="text-sm font-semibold uppercase tracking-widest hidden md:inline">Close</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="flex-1 bg-nursery-100 relative w-full h-full p-2 md:p-8">
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTb0axpecO4Cc1f81mJEO-23A6imoGJIT5GfWRKyqBdFIcm0e6YysAkEWqmxfkLJA/pubhtml?widget=true&amp;headers=false" class="w-full h-full rounded-xl shadow-lg border-2 border-white bg-white"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Development Disclaimer Banner -->
+    <div id="dev-disclaimer" class="fixed bottom-0 left-0 w-full bg-nursery-600 text-white z-[100] transform transition-transform duration-300 translate-y-full hidden">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center lg:px-12 w-full">
+            <div class="flex items-center gap-3">
+                <span class="flex p-1 rounded-lg bg-nursery-700 flex-shrink-0">
+                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+                <p class="text-sm font-medium pr-2 text-balance leading-tight max-w-2xl">
+                    <strong class="font-bold">Development Build:</strong> Some photographs and contact info are placeholders.
+                </p>
+            </div>
+            <div class="flex-shrink-0 ml-4">
+                <button type="button" id="dismiss-disclaimer" class="-mr-1 flex p-2 rounded-md hover:bg-nursery-700 focus:outline-none transition-colors">
+                    <span class="sr-only">Dismiss</span>
+                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom scripts -->
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #111827; /* Very dark slate for high contrast */
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .outfit-font {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em; /* Editorial tightness */
+}
+
+/* Elegant line clamp for typography */
+.text-balance {
+    text-wrap: balance;
+}
+
+/* Glassmorphism for strictly necessary elements like the nav */
+.glass {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Section fading - Keeps the entrance smooth without feeling like 'AI slop floating' */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(15px);
+    visibility: hidden;
+    transition: opacity 0.8s cubic-bezier(0.2, 0.6, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
+    will-change: opacity, visibility, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
+
+/* Custom Scrollbar - Minimalist */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+    background: #e5e7eb; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #16a34a; 
+}
+
+/* Hover effects - Purely typographic/line based, NO floating */
+.hover-link-line {
+    position: relative;
+}
+.hover-link-line::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+.hover-link-line:hover::after {
+    width: 100%;
+}
