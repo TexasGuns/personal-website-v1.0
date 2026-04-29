@@ -42,10 +42,14 @@
             details.classList.remove('hidden');
             details.classList.add('flex');
             
+            // Trigger reflow to ensure the CSS transition works after removing 'hidden'
+            void details.offsetWidth;
+            details.classList.add('is-visible');
+            
             // Decrypt the protected information using Base64
-            const emailDecoded = atob("eW91ci5lbWFpbEBleGFtcGxlLmNvbQ=="); // your.email@example.com
-            const phoneDecoded = atob("KDU1NSkgMTIzLTQ1Njc="); // (555) 123-4567
-            const phoneLinkDecoded = atob("NTU1MTIzNDU2Nw=="); // 5551234567
+            const emailDecoded = atob("cm9ibWNrZW5uYTc3N0BnbWFpbC5jb20="); 
+            const phoneDecoded = atob("KDIxMCkgNDIyLTAyNzY="); 
+            const phoneLinkDecoded = atob("MjEwNDIyMDI3Ng=="); 
 
             const emailLink = document.getElementById('email-link');
             emailLink.textContent = emailDecoded;
@@ -101,12 +105,12 @@
                 <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                 Please verify you are human
             </p>
-            <!-- Google's Official Test Key (always passes) -->
-            <div class="g-recaptcha border-2 border-transparent hover:border-nursery-500/30 transition-colors rounded-lg overflow-hidden shadow-2xl" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback="onCaptchaSuccess" data-theme="dark"></div>
+            <!-- reCAPTCHA v2 Checkbox -->
+            <div class="g-recaptcha border-2 border-transparent hover:border-nursery-500/30 transition-colors rounded-lg overflow-hidden shadow-2xl" data-sitekey="6Lc46dAsAAAAADFrwpCQ3olBUUq2lEE2fzp3LKIE" data-callback="onCaptchaSuccess" data-theme="dark"></div>
         </div>
         
         <!-- Hidden Details -->
-        <div id="contact-details" class="hidden flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16 mt-8 fade-in-section opacity-0 transition-opacity duration-1000 is-visible">
+        <div id="contact-details" class="hidden flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16 mt-8 fade-in-section duration-1000">
             <div>
                 <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-2">Email</p>
                 <a href="#" id="email-link" class="text-2xl font-light hover:text-nursery-500 transition-colors hover-link-line inline-block text-white">Loading...</a>
@@ -144,7 +148,7 @@
                     </svg>
                 </span>
                 <p class="text-sm font-medium pr-2 text-balance leading-tight max-w-2xl">
-                    <strong class="font-bold">Development Build:</strong> Some photographs and contact info are placeholders.
+                    <strong class="font-bold">Development Build:</strong> Some photographs are placeholders.
                 </p>
             </div>
             <div class="flex-shrink-0 ml-4">
