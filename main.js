@@ -217,4 +217,33 @@ document.addEventListener("DOMContentLoaded", function() {
             localStorage.setItem('devDisclaimerDismissed', 'true');
         });
     }
+
+    // Hero Section Parallax Effect
+    const heroTextBehind = document.getElementById('hero-text-content-behind');
+    const heroTextFront = document.getElementById('hero-text-content-front');
+    const heroBg = document.getElementById('hero-bg');
+    const heroFg = document.getElementById('hero-fg');
+
+    if (heroBg && heroFg) {
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            
+            // We want a deep vertical parallax effect:
+            // 1. Container naturally scrolls up.
+            // 2. We translate elements DOWN relative to the container to slow them down.
+            
+            // Text: translates down by 0.3, net movement UP is 0.7. (Moves fast)
+            const textTransform = `translateY(${scrollY * 0.3}px)`;
+            if (heroTextBehind) heroTextBehind.style.transform = textTransform;
+            if (heroTextFront) heroTextFront.style.transform = textTransform;
+            
+            // Foreground: translates down by 0.6, net movement UP is 0.4. (Moves slower)
+            // Because Text moves up faster than Foreground, it slides gracefully behind it!
+            heroFg.style.transform = `translateY(${scrollY * 0.6}px) scale(1.05)`;
+
+            // Background: translates down by 0.7, net movement UP is 0.3. (Moves slowest, deepest depth)
+            heroBg.style.transform = `translateY(${scrollY * 0.7}px) scale(1.05)`;
+            
+        }, { passive: true });
+    }
 });
