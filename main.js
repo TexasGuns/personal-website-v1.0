@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(el);
     });
 
-    // Global scroll state to pause carousels during page scroll (prevents Safari mobile freeze)
+    // Global scroll and touch state to pause carousels and prevent Safari mobile freeze
     let isPageScrolling = false;
     let pageScrollTimeout;
     window.addEventListener('scroll', () => {
@@ -45,6 +45,17 @@ document.addEventListener("DOMContentLoaded", function() {
         pageScrollTimeout = setTimeout(() => {
             isPageScrolling = false;
         }, 150);
+    }, { passive: true });
+
+    let isGlobalTouching = false;
+    window.addEventListener('touchstart', () => {
+        isGlobalTouching = true;
+    }, { passive: true });
+    window.addEventListener('touchend', () => {
+        isGlobalTouching = false;
+    }, { passive: true });
+    window.addEventListener('touchcancel', () => {
+        isGlobalTouching = false;
     }, { passive: true });
 
     // Advanced Carousel Logic
@@ -79,8 +90,8 @@ document.addEventListener("DOMContentLoaded", function() {
         
         const autoScroll = () => {
             if (!isUserInteracting && isVisible) {
-                // Pause DOM manipulation and scroll updates if user is vertically scrolling the page
-                if (!isPageScrolling) {
+                // Pause DOM manipulation during ANY scroll or touch to prevent Safari freeze
+                if (!isPageScrolling && !isGlobalTouching) {
                     track.scrollLeft += scrollStep;
                     
                     const firstChild = track.firstElementChild;
@@ -99,35 +110,9 @@ document.addEventListener("DOMContentLoaded", function() {
             isUserInteracting = true;
         };
 
-        // Circular scrolling logic for user swipe/wheel/clicks
-        track.addEventListener('scroll', () => {
-            if (isUserInteracting) {
-                const firstChild = track.firstElementChild;
-                const lastChild = track.lastElementChild;
-                
-                // Scrolling moving right
-                if (firstChild && track.scrollLeft >= firstChild.offsetWidth) {
-                    const behavior = track.style.scrollBehavior;
-                    track.style.scrollBehavior = 'auto'; // Prevent transition glide on jump
-                    
-                    track.appendChild(firstChild);
-                    track.scrollLeft -= firstChild.offsetWidth;
-                    
-                    track.style.scrollBehavior = behavior;
-                }
-                
-                // Scrolling moving left
-                if (lastChild && track.scrollLeft <= 0) {
-                    const behavior = track.style.scrollBehavior;
-                    track.style.scrollBehavior = 'auto';
-                    
-                    track.prepend(lastChild);
-                    track.scrollLeft += lastChild.offsetWidth;
-                    
-                    track.style.scrollBehavior = behavior;
-                }
-            }
-        });
+        // Native scroll listener for infinite mobile wrapping removed.
+        // It actively fights native iOS momentum scrolling and freezes the browser.
+        // Mobile users will simply reach the end of the carousel natively.
 
         // Arrows - Custom Delta Animation
         let arrowAnimationId;
@@ -200,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
         track.style.cursor = 'grab';
 
         track.addEventListener('mousedown', (e) => {
+            if (isGlobalTouching) return; // Ignore synthetic mouse events from touches
             isDragging = true;
             track.style.cursor = 'grabbing';
             track.style.scrollBehavior = 'auto'; // Prevent transition lag
@@ -349,6 +335,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let ticking = false;
 
         window.addEventListener('scroll', () => {
+            if (window.innerWidth < 768) return; // Disable parallax on mobile to preserve scroll performance
             if (!ticking) {
                 window.requestAnimationFrame(() => {
                     const scrollY = window.scrollY;
@@ -380,6 +367,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let tickingProjects = false;
 
         window.addEventListener('scroll', () => {
+            if (window.innerWidth < 768) return; // Disable parallax on mobile to preserve scroll performance
             if (!tickingProjects) {
                 window.requestAnimationFrame(() => {
                     const scrollY = window.scrollY;
