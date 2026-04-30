@@ -36,6 +36,17 @@ document.addEventListener("DOMContentLoaded", function() {
         observer.observe(el);
     });
 
+    // Global scroll state to pause carousels during page scroll (prevents Safari mobile freeze)
+    let isPageScrolling = false;
+    let pageScrollTimeout;
+    window.addEventListener('scroll', () => {
+        isPageScrolling = true;
+        clearTimeout(pageScrollTimeout);
+        pageScrollTimeout = setTimeout(() => {
+            isPageScrolling = false;
+        }, 150);
+    }, { passive: true });
+
     // Advanced Carousel Logic
     const carousels = document.querySelectorAll('.carousel-wrapper');
     
@@ -44,26 +55,44 @@ document.addEventListener("DOMContentLoaded", function() {
         const prevBtn = wrapper.querySelector('.carousel-prev');
         const nextBtn = wrapper.querySelector('.carousel-next');
         let isUserInteracting = false;
+        let isVisible = false;
         let animationFrameId;
 
         // Slow steady continuous scroll
         const scrollStep = 1; // Pixels per frame
+        
+        // Intersection observer to only animate when visible
+        const carouselObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isVisible = entry.isIntersecting;
+                if (isVisible && !animationFrameId && !isUserInteracting) {
+                    animationFrameId = requestAnimationFrame(autoScroll);
+                }
+            });
+        }, { root: null, threshold: 0.05 });
+        
+        carouselObserver.observe(wrapper);
         
         // To maintain an infinite loop without cloning nodes (which duplicates network requests),
         // we physically transfer the first DOM element to the end of the list when it scrolls fully 
         // out of view, and instantly bump the scroll position back by its width so it is invisible!
         
         const autoScroll = () => {
-            if (!isUserInteracting) {
-                track.scrollLeft += scrollStep;
-                
-                const firstChild = track.firstElementChild;
-                if (firstChild && track.scrollLeft >= firstChild.offsetWidth) {
-                    track.appendChild(firstChild);
-                    track.scrollLeft -= firstChild.offsetWidth;
+            if (!isUserInteracting && isVisible) {
+                // Pause DOM manipulation and scroll updates if user is vertically scrolling the page
+                if (!isPageScrolling) {
+                    track.scrollLeft += scrollStep;
+                    
+                    const firstChild = track.firstElementChild;
+                    if (firstChild && track.scrollLeft >= firstChild.offsetWidth) {
+                        track.appendChild(firstChild);
+                        track.scrollLeft -= firstChild.offsetWidth;
+                    }
                 }
+                animationFrameId = requestAnimationFrame(autoScroll);
+            } else {
+                animationFrameId = null;
             }
-            animationFrameId = requestAnimationFrame(autoScroll);
         };
 
         const stopAutoScroll = () => {
@@ -100,37 +129,129 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        // Arrows
-        prevBtn.addEventListener('click', () => {
-            stopAutoScroll();
-            // Pre-shift backwards if we are at the edge, to ensure smoothScroll is uninterrupted
-            if (track.scrollLeft < 100) {
-                const lastChild = track.lastElementChild;
-                const behavior = track.style.scrollBehavior;
-                track.style.scrollBehavior = 'auto';
-                track.prepend(lastChild);
-                track.scrollLeft += lastChild.offsetWidth;
-                track.style.scrollBehavior = behavior;
-            }
-            track.scrollBy({ left: -300, behavior: 'smooth' });
-        });
+        // Arrows - Custom Delta Animation
+        let arrowAnimationId;
+        const animateScrollBy = (distance, duration = 400) => {
+            if (arrowAnimationId) cancelAnimationFrame(arrowAnimationId);
+            const startTime = performance.now();
+            let lastEasedValue = 0;
+
+            const animate = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Ease out cubic
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const currentEasedValue = distance * easeOut;
+                const delta = currentEasedValue - lastEasedValue;
+                
+                // Pre-emptively wrap, exactly like the mouse drag logic
+                if (track.scrollLeft + delta <= 0) {
+                    const lastChild = track.lastElementChild;
+                    if (lastChild) {
+                        track.style.scrollBehavior = 'auto';
+                        track.prepend(lastChild);
+                        track.scrollLeft += lastChild.offsetWidth;
+                    }
+                } else {
+                    const firstChild = track.firstElementChild;
+                    if (firstChild && track.scrollLeft + delta >= firstChild.offsetWidth) {
+                        track.style.scrollBehavior = 'auto';
+                        track.appendChild(firstChild);
+                        track.scrollLeft -= firstChild.offsetWidth;
+                    }
+                }
+                
+                track.scrollLeft += delta;
+                lastEasedValue = currentEasedValue;
+                
+                if (progress < 1) {
+                    arrowAnimationId = requestAnimationFrame(animate);
+                } else {
+                    arrowAnimationId = null;
+                }
+            };
+            arrowAnimationId = requestAnimationFrame(animate);
+        };
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                animateScrollBy(-350);
+            });
+        }
         
-        nextBtn.addEventListener('click', () => {
-            stopAutoScroll();
-            track.scrollBy({ left: 300, behavior: 'smooth' });
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                stopAutoScroll();
+                animateScrollBy(350);
+            });
+        }
+
+        // Mouse drag to scroll logic
+        let isDragging = false;
+        let lastX;
+
+        // Prevent native image dragging which conflicts with our custom drag
+        track.querySelectorAll('img, video').forEach(media => {
+            media.addEventListener('dragstart', (e) => e.preventDefault());
         });
 
-        // User interactions (touch, drag, wheel)
+        track.style.cursor = 'grab';
+
+        track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            track.style.cursor = 'grabbing';
+            track.style.scrollBehavior = 'auto'; // Prevent transition lag
+            lastX = e.pageX - track.offsetLeft;
+            stopAutoScroll();
+        });
+
+        track.addEventListener('mouseleave', () => {
+            isDragging = false;
+            track.style.cursor = 'grab';
+        });
+
+        track.addEventListener('mouseup', () => {
+            isDragging = false;
+            track.style.cursor = 'grab';
+        });
+
+        track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const currentX = e.pageX - track.offsetLeft;
+            const delta = (lastX - currentX) * 1.5; // Scroll speed multiplier
+            
+            // Pre-emptively wrap if this drag would hit the boundaries, 
+            // preventing the browser from capping scrollLeft and losing momentum.
+            if (track.scrollLeft + delta <= 0) {
+                const lastChild = track.lastElementChild;
+                if (lastChild) {
+                    track.style.scrollBehavior = 'auto';
+                    track.prepend(lastChild);
+                    track.scrollLeft += lastChild.offsetWidth;
+                }
+            } else {
+                const firstChild = track.firstElementChild;
+                if (firstChild && track.scrollLeft + delta >= firstChild.offsetWidth) {
+                    track.style.scrollBehavior = 'auto';
+                    track.appendChild(firstChild);
+                    track.scrollLeft -= firstChild.offsetWidth;
+                }
+            }
+            
+            track.scrollLeft += delta;
+            lastX = currentX;
+        });
+
+        // Other User interactions
         track.addEventListener('wheel', stopAutoScroll, { passive: true });
         track.addEventListener('touchstart', stopAutoScroll, { passive: true });
-        track.addEventListener('mousedown', stopAutoScroll, { passive: true });
         
         // Pause when interacting with arrows
-        prevBtn.addEventListener('mouseenter', stopAutoScroll);
-        nextBtn.addEventListener('mouseenter', stopAutoScroll);
-
-        // Start
-        requestAnimationFrame(autoScroll);
+        if (prevBtn) prevBtn.addEventListener('mouseenter', stopAutoScroll);
+        if (nextBtn) nextBtn.addEventListener('mouseenter', stopAutoScroll);
     });
 
     // Modals Logic
