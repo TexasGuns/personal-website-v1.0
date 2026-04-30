@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1
+        threshold: 0.2
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -225,25 +225,55 @@ document.addEventListener("DOMContentLoaded", function() {
     const heroFg = document.getElementById('hero-fg');
 
     if (heroBg && heroFg) {
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            
-            // We want a deep vertical parallax effect:
-            // 1. Container naturally scrolls up.
-            // 2. We translate elements DOWN relative to the container to slow them down.
-            
-            // Text: translates down by 0.3, net movement UP is 0.7. (Moves fast)
-            const textTransform = `translateY(${scrollY * 0.3}px)`;
-            if (heroTextBehind) heroTextBehind.style.transform = textTransform;
-            if (heroTextFront) heroTextFront.style.transform = textTransform;
-            
-            // Foreground: translates down by 0.6, net movement UP is 0.4. (Moves slower)
-            // Because Text moves up faster than Foreground, it slides gracefully behind it!
-            heroFg.style.transform = `translateY(${scrollY * 0.6}px) scale(1.05)`;
+        let ticking = false;
 
-            // Background: translates down by 0.7, net movement UP is 0.3. (Moves slowest, deepest depth)
-            heroBg.style.transform = `translateY(${scrollY * 0.7}px) scale(1.05)`;
-            
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    
+                    // We want a deep vertical parallax effect:
+                    // Text: translates down by 0.15, net movement UP is 0.85. (Moves fast)
+                    const textTransform = `translate3d(0, ${scrollY * 0.15}px, 0)`;
+                    if (heroTextBehind) heroTextBehind.style.transform = textTransform;
+                    if (heroTextFront) heroTextFront.style.transform = textTransform;
+                    
+                    // Foreground: translates down by 0.45, net movement UP is 0.55. (Moves slower)
+                    heroFg.style.transform = `translate3d(0, ${scrollY * 0.45}px, 0) scale(1.05)`;
+
+                    // Background: translates down by 0.85, net movement UP is 0.15. (Moves slowest, deepest depth)
+                    heroBg.style.transform = `translate3d(0, ${scrollY * 0.85}px, 0) scale(1.05)`;
+                    
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+    }
+
+    // Projects Section Parallax Effect
+    const projectsHeroBg = document.getElementById('projects-hero-bg');
+    const projectsHeroText = document.getElementById('projects-hero-text');
+
+    if (projectsHeroBg && projectsHeroText) {
+        let tickingProjects = false;
+
+        window.addEventListener('scroll', () => {
+            if (!tickingProjects) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    
+                    // Subtle parallax for the projects header
+                    // Move the text down slower than scroll speed
+                    projectsHeroText.style.transform = `translate3d(0, ${scrollY * 0.25}px, 0)`;
+                    
+                    // Move the background blobs down slightly faster than the text to create depth
+                    projectsHeroBg.style.transform = `translate3d(0, ${scrollY * 0.5}px, 0)`;
+                    
+                    tickingProjects = false;
+                });
+                tickingProjects = true;
+            }
         }, { passive: true });
     }
 });

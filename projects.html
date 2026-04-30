@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Rob McKenna Portfolio</title>
     <meta name="description" content="Project samples and practical execution for Rob McKenna portfolio.">
+    <!-- Open Graph / LinkedIn / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Projects | Rob McKenna Portfolio">
+    <meta property="og:description" content="Project samples and practical execution for Rob McKenna portfolio.">
+    <meta property="og:image" content="/Homepage%20pictures/main%20photo%20final.JPG">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projects | Rob McKenna Portfolio">
+    <meta name="twitter:description" content="Project samples and practical execution for Rob McKenna portfolio.">
+    <meta name="twitter:image" content="/Homepage%20pictures/main%20photo%20final.JPG">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -81,10 +91,18 @@
 
     <!-- Projects Section -->
     <section id="projects" class="bg-white min-h-screen">
-        <div class="py-32 px-6 lg:px-12 max-w-7xl mx-auto fade-in-section">
-            <h2 class="text-4xl lg:text-5xl font-black outfit-font tracking-tighter mb-4">Project Samples</h2>
-            <p class="text-xl text-gray-500 font-light">Practical execution of operations, leadership, and estimation.
-            </p>
+        <div class="relative overflow-hidden bg-gray-50 border-b border-gray-100 w-full">
+            <!-- Ambient Animated Background -->
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none" id="projects-hero-bg">
+                <div class="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-nursery-200/50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+                <div class="absolute top-[10%] right-[-10%] w-[400px] h-[400px] bg-blue-100/50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+                <div class="absolute bottom-[-20%] left-[20%] w-[600px] h-[600px] bg-nursery-300/40 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+            </div>
+
+            <div class="relative z-10 py-32 md:py-40 px-6 lg:px-12 max-w-7xl mx-auto flex flex-col items-center justify-center text-center" id="projects-hero-text">
+                <h2 class="text-5xl lg:text-6xl font-black outfit-font tracking-tighter mb-6 text-gray-900 drop-shadow-sm fade-in-section">Project Samples</h2>
+                <p class="text-xl lg:text-2xl text-gray-600 font-light text-balance max-w-3xl fade-in-section" style="transition-delay: 200ms;">Practical execution of operations, leadership, and estimation.</p>
+            </div>
         </div>
 
         <div class="space-y-0">
@@ -92,7 +110,7 @@
             <div class="bg-white py-16 fade-in-section group">
                 <div class="relative carousel-wrapper group">
                     <button
-                        class="carousel-prev opacity-0 group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        class="carousel-prev opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
                             </path>
@@ -133,12 +151,12 @@
                             alt="Leaf Landscape photo 12" class="shrink-0 h-full w-auto object-contain pl-6"
                             loading="lazy">
                         <img src="Leaf%20Landscape%20supply%20internship%202025/955325da-43c6-46f2-9148-511080a25ba0.webp"
-                            alt="Leaf Landscape photo 13" class="shrink-0 h-full w-auto object-contain pl-6 pr-6"
+                            alt="Leaf Landscape photo 13" class="shrink-0 h-full w-auto object-contain pl-6"
                             loading="lazy">
                     </div>
 
                     <button
-                        class="carousel-next opacity-0 group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        class="carousel-next opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                             </path>
@@ -210,7 +228,7 @@
             <div class="bg-gray-50 py-16 fade-in-section group">
                 <div class="relative carousel-wrapper group">
                     <button
-                        class="carousel-prev opacity-0 group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        class="carousel-prev opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
                             </path>
@@ -242,11 +260,11 @@
                         <img src="Green%20Leaf%20Internship%202024/20240724_114101.webp" alt="Green Leaf photo 12"
                             class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
                         <img src="Green%20Leaf%20Internship%202024/Snapchat-930022574.webp" alt="Green Leaf photo 13"
-                            class="shrink-0 h-full w-auto object-contain pl-6 pr-6" loading="lazy">
+                            class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
                     </div>
 
                     <button
-                        class="carousel-next opacity-0 group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        class="carousel-next opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                             </path>
@@ -365,7 +383,7 @@
             <div class="bg-gray-50 py-16 fade-in-section group">
                 <div class="relative carousel-wrapper group">
                     <button
-                        class="carousel-prev opacity-0 group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        class="carousel-prev opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
                             </path>
@@ -387,11 +405,11 @@
                         <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_20251020_215236.webp" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
                         <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_8894.webp" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
                         <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_0645.webp" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
-                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_0648.webp" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6 pr-6" loading="lazy">
+                        <img src="TAMU%20Jiu-Jitsu%20Coaching/IMG_0648.webp" alt="Jiu Jitsu photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
                     </div>
 
                     <button
-                        class="carousel-next opacity-0 group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                        class="carousel-next opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
                             </path>
@@ -424,7 +442,7 @@
             <!-- Sample 5 -->
             <div class="bg-white py-16 fade-in-section group">
                 <div class="relative carousel-wrapper group">
-                    <button class="carousel-prev opacity-0 group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                    <button class="carousel-prev opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
                     
@@ -435,10 +453,10 @@
                         <img src="Mission%20landscape%20and%20dry%20creek/FullSizeRender.webp" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
                         <img src="Mission%20landscape%20and%20dry%20creek/64865734049__6E024605-5627-440A-81D6-6A052B0D8AC3.webp" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
                         <img src="Mission%20landscape%20and%20dry%20creek/IMG_7836.webp" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
-                        <img src="Mission%20landscape%20and%20dry%20creek/IMG_7838.webp" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6 pr-6" loading="lazy">
+                        <img src="Mission%20landscape%20and%20dry%20creek/IMG_7838.webp" alt="Mission and Dry Creek photo" class="shrink-0 h-full w-auto object-contain pl-6" loading="lazy">
                     </div>
 
-                    <button class="carousel-next opacity-0 group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
+                    <button class="carousel-next opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-nursery-700 p-3 lg:p-4 rounded-full shadow-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-nursery-500">
                         <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
                 </div>
